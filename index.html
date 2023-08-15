@@ -5,11 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <meta property="og:url" content="http://gg.chendahai.cn/static/share/index.html" />
-    <meta property="og:title" content="This is my plan,let's play together" />
-    <meta property="og:description" content="This is my plan,let's play together" />
-    <meta property="og:image" content="https://cdn2.selleroa.com/yfni/test/1688373030666617baf.png" />
+    <!-- <meta property="og:url" content="http://gg.chendahai.cn/static/share/index.html" />
+    <meta property="og:title" content="Coffee Ice's Homes" />
+    <meta property="og:description" content="SHEIN Maternity Flounce Sleeve Peplum Blouse" />
+    <meta property="og:image"
+        content="http://img.ltwebstatic.com/images3_pi/2023/05/16/168422358614d90a8cb6e2f21f4f440aa22588864a.png" /> -->
     <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@nytimes">
+    <meta name="twitter:creator" content="@SarahMaslinNir">
+    <meta name="twitter:title" content="Parade of Fans for Houston’s Funeral">
+    <meta name="twitter:description"
+        content="NEWARK - The guest list and parade of limousines with celebrities emerging from them seemed more suited to a red carpet event in Hollywood or New York than than a gritty stretch of Sussex Avenue near the former site of the James M. Baxter Terrace public housing project here.">
+    <meta name="twitter:image"
+        content="http://img.ltwebstatic.com/images3_pi/2023/05/16/168422358614d90a8cb6e2f21f4f440aa22588864a.png">
 </head>
 
 <body>
@@ -17,7 +27,12 @@
     <div>测试缩略图</div>
     <button id="shareBtn">share to facebook</button><br />
     <button id="shareBtn2">share to facebook by url</button><br />
-    <button id="shareBtn3">share to facebook by sharer.php</button>
+    <button id="shareBtn3">share to facebook by sharer.php</button><br />
+    <a class="twitter-share-button" id="twitter01" data-size="large">share
+        to twitter by twitter button 2</a>
+    <button id="twitter02">share to twitter by button 3 3 3 share</button><br />
+    <button id="pinterest01">pinterest 01</button>
+    <button id="shareBtn4">share to facebook 42, url params</button>
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -44,16 +59,46 @@
         document.querySelector('#shareBtn3').onclick = function () {
             const ogUrl = 'https://coffeeyangkang.github.io';
             const ogAttributes = [
-                'og:url',
-                'http://gg.chendahai.cn/static/share/index.html',
-                'og:title',
-                'Hello World',
-                'og:description',
-                "This is my plan,let's play together",
-                'og:image',
-                'https://cdn2.selleroa.com/yfni/test/1688373030666617baf.png',
-                'og:type',
-                'website',
+                'sharePlatform',
+                'PC',
+                'shareChannel',
+                'Facebook',
+                'shareUserId',
+                '1234567890'
+            ].toString();
+            const dialogParams =
+                'width=600, height=450, toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, top=100,left=350';
+            const uValue = encodeURIComponent(`${ogUrl}?meta=${ogAttributes}`);
+            const openUrl = `http://www.facebook.com/sharer.php?u=${uValue}`;
+            window.open(openUrl, '_blank', dialogParams);
+        }
+
+        document.querySelector('#twitter01').onclick = function () {
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent('https://coffeeyangkang.github.io?name=pc&channel=twitter')}`, '_blank');
+        }
+
+        document.querySelector('#twitter02').onclick = function () {
+            const dialogParams =
+                'width=600, height=450, toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, top=100,left=350';
+            const openUrl = `https://twitter.com/share?text=${encodeURIComponent('Tide Ultra OXI Power PODS with Odor Eliminators Laundry Detergent Pacs 63 Count For Visible and Invisible Dirt')}&url=${encodeURIComponent('https://coffeeyangkang.github.io?name=pc&channel=twitter')}`;
+
+            window.open(openUrl, '_blank', dialogParams);
+        }
+
+        document.querySelector('#pinterest01').onclick = function () {
+            const dialogParams =
+                'width=600, height=450, toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, top=100,left=350';
+            const openUrl = `https://www.pinterest.com/pin/create/button?url=${encodeURIComponent('https://coffeeyangkang.github.io?name=pc&channel=pinterest')}&description=${encodeURIComponent('Hello World')}&media=${encodeURIComponent('https://m.media-amazon.com/images/I/51IlKjo-rWL.jpg')}`;
+            window.open(openUrl, '_blank', dialogParams);
+        };
+        document.querySelector('#shareBtn4').onclick = function () {
+            const ogUrl = 'https://coffeeyangkang.github.io';
+            const ogAttributes = [
+                'og:url', ogUrl,
+                'og:title', 'this is title',
+                'og:description', 'this is desc',
+                'og:image', 'https://m.media-amazon.com/images/I/812Fy39b1LL._AC_SX679_.jpg',
+                'og:type', 'website'
             ].toString();
             const dialogParams =
                 'width=600, height=450, toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, top=100,left=350';
@@ -66,3 +111,5 @@
 </body>
 
 </html>
+<!-- '"https://www.pinterest.com/pin/create/button/?url=https://www.amazon.com/dp/B0B1VVM7WF?ref_=cm_sw_r_pi_ud_dp_MWQT4MT4Y8GVJND886ET&amp;description=Tide Ultra OXI Power PODS with Odor Eliminators Laundry Detergent Pacs 63 Count For Visible and Invisible Dirt&amp;media=https://m.media-amazon.com/images/I/51IlKjo-rWL.jpg&amp;method=button"' -->
+<!-- 'https://www.facebook.com/dialog/share?_encoding=UTF8&amp;app_id=465632727431967&amp;display=popup&amp;href=https://www.amazon.com/dp/B089GN2KBT?_encoding=UTF8&psc=1&ref_=cm_sw_r_fa_ud_dp_6D3T6GK4DAK14VF1XV7V&amp;redirect_uri=https://www.amazon.com/dp/B089GN2KBT?_encoding=UTF8&psc=1&ref_=cm_sw_s_fa_ud_dp_6D3T6GK4DAK14VF1XV7V&amp;hashtag=#Amazon' -->
