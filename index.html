@@ -16,7 +16,8 @@
     <h1>Hello World</h1>
     <div>测试缩略图</div>
     <button id="shareBtn">share to facebook</button><br />
-    <button id="shareBtn2">share to facebook by url</button>
+    <button id="shareBtn2">share to facebook by url</button><br />
+    <button id="shareBtn3">share to facebook by sharer.php</button>
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -39,6 +40,26 @@
   &display=popup
   &href=${encodeURIComponent('https://coffeeyangkang.github.io/')}&redirect_uri=https%3A%2F%2Fdevelopers.facebook.com%2Ftools%2Fexplorer
   `, '_blank');
+        }
+        document.querySelector('#shareBtn3').onclick = function () {
+            const ogUrl = 'http://gg.chendahai.cn/static/share/index.html';
+            const ogAttributes = [
+                'og:url',
+                'http://gg.chendahai.cn/static/share/index.html',
+                'og:title',
+                'Hello World',
+                'og:description',
+                "This is my plan,let's play together",
+                'og:image',
+                'https://cdn2.selleroa.com/yfni/test/1688373030666617baf.png',
+                'og:type',
+                'website',
+            ].toString();
+            const dialogParams =
+                'width=600, height=450, toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, top=100,left=350';
+            const uValue = encodeURIComponent(`${ogUrl}?meta=${ogAttributes}`);
+            const openUrl = `http://www.facebook.com/sharer.php?u=${uValue}`;
+            window.open(openUrl, '_blank', dialogParams);
         }
     </script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
