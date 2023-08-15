@@ -15,6 +15,26 @@
 <body>
     <h1>Hello World</h1>
     <div>测试缩略图</div>
+    <button id="shareBtn">share to facebook</button>
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '1447982596049770',
+                autoLogAppEvents: true,
+                xfbml: true,
+                version: 'v17.0'
+            });
+        };
+        document.getElementById('shareBtn').onclick = function () {
+            FB.ui({
+                display: 'popup',
+                method: 'share',
+                href: 'https://coffeeyangkang.github.io/',
+            }, function (response) { });
+        }
+
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
 
 </html>
