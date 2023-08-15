@@ -15,7 +15,8 @@
 <body>
     <h1>Hello World</h1>
     <div>测试缩略图</div>
-    <button id="shareBtn">share to facebook</button>
+    <button id="shareBtn">share to facebook</button><br />
+    <button id="shareBtn2">share to facebook by url</button>
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -32,7 +33,13 @@
                 href: 'https://coffeeyangkang.github.io/',
             }, function (response) { });
         }
-
+        document.querySelector('#shareBtn2').onclick = function () {
+            window.open(`https://www.facebook.com/dialog/share?
+  app_id=1447982596049770
+  &display=popup
+  &href=${encodeURIComponent('https://coffeeyangkang.github.io/')}
+  `, '_blank');
+        }
     </script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
