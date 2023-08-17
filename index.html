@@ -33,7 +33,7 @@
     <button id="twitter02">share to twitter by button 3 3 3 share</button><br />
     <button id="pinterest01">pinterest 01</button>
     <button id="shareBtn4">share to facebook 42, url params</button>
-    <button id="shareBtn5">share to facebook 51</button>
+    <button id="shareBtn5">share to facebook 52</button>
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -110,7 +110,7 @@
 
         document.querySelector('#shareBtn5').onclick = function () {
             const p = new Promise((resolve) => {
-                const headerEle = document.querySelector('header');
+                const headerEle = document.querySelector('head');
                 let str = headerEle.innerHTML;
                 str += `<meta property="og:url" content="https://coffeeyangkang.github.io" />
     <meta property="og:title" content="this is title" />
