@@ -33,6 +33,7 @@
     <button id="twitter02">share to twitter by button 3 3 3 share</button><br />
     <button id="pinterest01">pinterest 01</button>
     <button id="shareBtn4">share to facebook 42, url params</button>
+    <button id="shareBtn5">share to facebook 51</button>
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -105,6 +106,35 @@
             const uValue = encodeURIComponent(`${ogUrl}?meta=${ogAttributes}`);
             const openUrl = `http://www.facebook.com/sharer.php?u=${uValue}`;
             window.open(openUrl, '_blank', dialogParams);
+        }
+
+        document.querySelector('#shareBtn5').onclick = function () {
+            const p = new Promise((resolve) => {
+                const headerEle = document.querySelector('header');
+                let str = headerEle.innerHTML;
+                str += `<meta property="og:url" content="https://coffeeyangkang.github.io" />
+    <meta property="og:title" content="this is title" />
+    <meta property="og:description" content="this is desc" />
+    <meta property="og:image"
+        content="https://m.media-amazon.com/images/I/812Fy39b1LL._AC_SX679_.jpg" />`;
+                headerEle.innerHTML = str;
+                setTimeout(resolve, 100);
+            });
+            p.then(() => {
+                const ogUrl = 'https://coffeeyangkang.github.io';
+                const ogAttributes = [
+                    'og:url', ogUrl,
+                    'og:title', 'this is title',
+                    'og:description', 'this is desc',
+                    'og:image', 'https://m.media-amazon.com/images/I/812Fy39b1LL._AC_SX679_.jpg',
+                    'og:type', 'website'
+                ].toString();
+                const dialogParams =
+                    'width=600, height=450, toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, top=100,left=350';
+                const uValue = encodeURIComponent(`${ogUrl}?meta=${ogAttributes}`);
+                const openUrl = `http://www.facebook.com/sharer.php?u=${uValue}`;
+                window.open(openUrl, '_blank', dialogParams);
+            });
         }
     </script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
